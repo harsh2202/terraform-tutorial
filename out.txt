@@ -1,0 +1,1 @@
+{"errorMessage": "'greeting from lambda'", "errorType": "KeyError", "stackTrace": [["/var/task/hello_lambda.py", 5, "lambda_handler", "return \"{} from Lambda!\".format(os.environ['greeting from lambda'])"], ["/var/lang/lib/python3.6/os.py", 669, "__getitem__", "raise KeyError(key) from None"]]}

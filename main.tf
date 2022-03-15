@@ -1,9 +1,11 @@
-# Specify the provider and access details
 provider "aws" {
-  region = "${var.aws_region}"
+  access_key = var.AWS_ACCESS_KEY_ID
+  secret_key = var.AWS_SECRET_ACCESS_KEY
+  region = var.aws_region
 }
 
-provider "archive" {}
+provider "archive" { 
+}
 
 data "archive_file" "zip" {
   type        = "zip"
@@ -11,16 +13,15 @@ data "archive_file" "zip" {
   output_path = "hello_lambda.zip"
 }
 
+
 data "aws_iam_policy_document" "policy" {
   statement {
-    sid    = ""
+    sid    = "1"
     effect = "Allow"
-
     principals {
       identifiers = ["lambda.amazonaws.com"]
       type        = "Service"
     }
-
     actions = ["sts:AssumeRole"]
   }
 }
